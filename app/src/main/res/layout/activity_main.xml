@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/club"
-        android:layout_width="171dp"
-        android:layout_height="55dp"
+        android:layout_width="172dp"
+        android:layout_height="59dp"
         android:text="Nombre del club"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/equipo"
+        android:id="@+id/Nombre_equipo"
         android:layout_width="175dp"
         android:layout_height="64dp"
         android:text="Nombre del equipo"
@@ -53,4 +53,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.04" />
+
+    <Button
+        android:id="@+id/evaluaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evaluaciones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
+
+    <Button
+        android:id="@+id/principal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
+
+    <Button
+        android:id="@+id/equipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Equipo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 </androidx.constraintlayout.widget.ConstraintLayout>
