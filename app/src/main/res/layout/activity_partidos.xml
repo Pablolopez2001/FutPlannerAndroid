@@ -9,14 +9,59 @@
 
   <TextView
       android:id="@+id/gestionpartifdos"
-      android:layout_width="258dp"
-      android:layout_height="54dp"
+      android:layout_width="253dp"
+      android:layout_height="55dp"
       android:text="Gestión de Partidos"
       android:textColor="@color/black"
+      android:textSize="28sp"
+      android:textStyle="bold"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.183"
+      app:layout_constraintHorizontal_bias="0.101"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.121" />
+      app:layout_constraintVertical_bias="0.198" />
+
+  <Button
+      android:id="@+id/btn_añadir"
+      android:layout_width="125dp"
+      android:layout_height="52dp"
+      android:backgroundTint="#004D00"
+      android:text="+"
+      android:textColor="@color/white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.197" />
+
+  <Button
+      android:id="@+id/btn_completados"
+      android:layout_width="395dp"
+      android:layout_height="83dp"
+      android:backgroundTint="#004D00"
+      android:text="Completados 🏆"
+      android:textColor="@color/white"
+      android:textSize="25sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.35" />
+
+  <TextView
+      android:id="@+id/prox_partidos"
+      android:layout_width="256dp"
+      android:layout_height="28dp"
+      android:text="Proximos partidos"
+      android:textSize="20sp"
+      android:gravity="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.496"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.075" />
 </androidx.constraintlayout.widget.ConstraintLayout>
