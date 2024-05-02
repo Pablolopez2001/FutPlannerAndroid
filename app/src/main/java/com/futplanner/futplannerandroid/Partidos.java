@@ -34,7 +34,7 @@ public class Partidos extends AppCompatActivity {
 
     private void mostrarListaDesplegable() {
         // Inflar la vista del layout de la lista desplegable
-        View view = getLayoutInflater().inflate(R.layout.layout_lista_desplegable, null);
+        /*View view = getLayoutInflater().inflate(R.layout.layout_lista_desplegable, null);
 
         // Configurar la lista desplegable
         listView = view.findViewById(R.id.listView);
@@ -52,6 +52,6 @@ public class Partidos extends AppCompatActivity {
         });
         // Crear la ventana emergente (popup window)
         popupWindow = new PopupWindow(view, btnCompletados.getWidth(), 400, true);
-        popupWindow.showAsDropDown(btnCompletados, 0, 0);
+        popupWindow.showAsDropDown(btnCompletados, 0, 0);*/
     }
 }

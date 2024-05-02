@@ -25,6 +25,9 @@ public class InicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
+        goButton = findViewById(R.id.login_btn);
+        username = findViewById(R.id.login_usuario);
+        password = findViewById(R.id.login_password);
 
         goButton.setOnClickListener(v -> {
             Intent intent = new Intent(InicioSesion.this, MainActivity.class);
