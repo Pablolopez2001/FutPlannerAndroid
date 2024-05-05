@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.futplanner.futplannerandroid.models.LogInModel;
 import com.futplanner.futplannerandroid.util.NetworkUtil;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class InicioSesion extends AppCompatActivity {
 
@@ -36,13 +39,18 @@ public class InicioSesion extends AppCompatActivity {
             LogInModel login = new LogInModel(user, pass);
             ObjectMapper om = new ObjectMapper();
 
-            try {
-                String response = NetworkUtil.post(NetworkUtil.URL + "logIn", om.writeValueAsString(login));
-                System.out.println(response);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            startActivity(intent);
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
+                try {
+                    String response = NetworkUtil.post(NetworkUtil.URL + "logIn", om.writeValueAsString(login));
+                    System.out.println(response);
+                    //TODO: Realizar el asignado a el usuario despues de convertir el JSON en objeto y almacenarlo
+                    runOnUiThread(() -> startActivity(intent));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    runOnUiThread(() -> Toast.makeText(InicioSesion.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show());
+                }
+            });
         });
     }
 }
