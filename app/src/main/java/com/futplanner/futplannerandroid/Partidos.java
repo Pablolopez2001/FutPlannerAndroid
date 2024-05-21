@@ -1,57 +1,95 @@
 package com.futplanner.futplannerandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.futplanner.futplannerandroid.util.NetworkUtil;
+
+import java.io.IOException;
 
 public class Partidos extends AppCompatActivity {
 
-    private Button btnCompletados;
-    private PopupWindow popupWindow;
-    private ListView listView;
-    private String[] elementosLista = {"Elemento 1", "Elemento 2", "Elemento 3", "Elemento 4"};
+    private TextView proximosPartidosTextView;
+    private Button añadirPartidoButton;
+    private Button completadosButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partidos);
 
-        btnCompletados = findViewById(R.id.btn_completados);
+        proximosPartidosTextView = findViewById(R.id.prox_partidos);
+        añadirPartidoButton = findViewById(R.id.btn_añadir);
+        completadosButton = findViewById(R.id.btn_completados);
 
-        // Configurar el onClickListener para el botón
-        btnCompletados.setOnClickListener(new View.OnClickListener() {
+        // Configurar onClickListener para el botón de añadir partido
+        añadirPartidoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarListaDesplegable();
+                // Aquí puedes abrir una nueva actividad para agregar un nuevo partido
+                Toast.makeText(Partidos.this, "Añadir partido", Toast.LENGTH_SHORT).show();
             }
         });
+
+        // Configurar onClickListener para el botón de partidos completados
+        completadosButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Aquí puedes abrir una nueva actividad para mostrar los partidos completados
+                Toast.makeText(Partidos.this, "Partidos completados", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Llamar al método para obtener y mostrar los próximos partidos
+        obtenerProximosPartidos();
     }
 
-    private void mostrarListaDesplegable() {
-        // Inflar la vista del layout de la lista desplegable
-        /*View view = getLayoutInflater().inflate(R.layout.layout_lista_desplegable, null);
+    private void obtenerProximosPartidos() {
+        // Realizar una solicitud a la API para obtener los próximos partidos
+        String url = "http://46.4.74.141:8080/api/partidos/proximos";
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        // Configurar la lista desplegable
-        listView = view.findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, elementosLista);
-        listView.setAdapter(adapter);
+        try {
+            // Realizar una solicitud POST en lugar de GET utilizando NetworkUtil
+            String jsonResponse = NetworkUtil.post(url, "");
 
-        // Configurar el evento de clic en los elementos de la lista
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Acción a realizar cuando se hace clic en un elemento de la lista
-                String selectedItem = (String) parent.getItemAtPosition(position);
-                Toast.makeText(Partidos.this, "Seleccionado: " + selectedItem, Toast.LENGTH_SHORT).show();
+            // Convertir la respuesta JSON en un objeto Java utilizando Jackson ObjectMapper
+            JsonNode jsonNode = objectMapper.readTree(jsonResponse);
+
+            // Verificar si la respuesta contiene datos de partidos
+            if (jsonNode.isArray()) {
+                StringBuilder partidosText = new StringBuilder();
+
+                // Iterar sobre los elementos del array de partidos
+                for (JsonNode partidoNode : jsonNode) {
+                    String equipoLocal = partidoNode.get("equipoLocal").asText();
+                    String equipoVisitante = partidoNode.get("equipoVisitante").asText();
+                    String fecha = partidoNode.get("fecha").asText();
+
+                    // Construir la representación de texto del partido
+                    String partidoText = "Equipo Local: " + equipoLocal + "\n"
+                            + "Equipo Visitante: " + equipoVisitante + "\n"
+                            + "Fecha: " + fecha + "\n\n";
+
+                    // Agregar el partido a la cadena de texto
+                    partidosText.append(partidoText);
+                }
+
+                // Mostrar la información de los partidos en el TextView
+                proximosPartidosTextView.setText(partidosText.toString());
             }
-        });
-        // Crear la ventana emergente (popup window)
-        popupWindow = new PopupWindow(view, btnCompletados.getWidth(), 400, true);
-        popupWindow.showAsDropDown(btnCompletados, 0, 0);*/
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error al obtener los próximos partidos", Toast.LENGTH_SHORT).show();
+        }
     }
 }
