@@ -21,7 +21,7 @@
       app:layout_constraintHorizontal_bias="0.101"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.198" />
+      app:layout_constraintVertical_bias="0.304" />
 
   <Button
       android:id="@+id/btn_añadir"
@@ -35,7 +35,7 @@
       app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.197" />
+      app:layout_constraintVertical_bias="0.303" />
 
   <Button
       android:id="@+id/btn_completados"
@@ -50,15 +50,15 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.35" />
+      app:layout_constraintVertical_bias="0.564" />
 
   <TextView
       android:id="@+id/prox_partidos"
-      android:layout_width="256dp"
-      android:layout_height="28dp"
+      android:layout_width="284dp"
+      android:layout_height="57dp"
+      android:gravity="center"
       android:text="Proximos partidos"
       android:textSize="20sp"
-      android:gravity="center"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.496"
