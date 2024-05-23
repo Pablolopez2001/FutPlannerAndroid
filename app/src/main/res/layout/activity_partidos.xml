@@ -9,7 +9,7 @@
     tools:context=".Partidos">
 
   <TextView
-      android:id="@+id/gestionpartifdos"
+      android:id="@+id/gestionpartidos"
       android:layout_width="253dp"
       android:layout_height="55dp"
       android:text="Gestión de Partidos"

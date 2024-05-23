@@ -88,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
         botonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Crear un Intent para iniciar la actividad InicioSesion
+                Intent intent = new Intent(MainActivity.this, InicioSesion.class);
+
+                // Iniciar la actividad InicioSesion
+                startActivity(intent);
+
                 // Finalizar la actividad actual para salir
                 finish();
             }

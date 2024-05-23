@@ -1,7 +1,6 @@
 package com.futplanner.futplannerandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,8 +33,10 @@ public class Partidos extends AppCompatActivity {
         añadirPartidoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Aquí puedes abrir una nueva actividad para agregar un nuevo partido
-                Toast.makeText(Partidos.this, "Añadir partido", Toast.LENGTH_SHORT).show();
+                // Crear un Intent para iniciar la actividad Equipo
+                Intent intent = new Intent(Partidos.this, Equipo.class);
+                // Iniciar la actividad Equipo
+                startActivity(intent);
             }
         });
 
