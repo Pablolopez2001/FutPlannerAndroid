@@ -45,45 +45,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crear un Intent para iniciar la actividad Sesiones
-                Intent intent = new Intent(MainActivity.this,Sesiones.class);
+                Intent intent = new Intent(MainActivity.this,Evaluaciones.class);
                 // Iniciar la actividad Sesiones
                 startActivity(intent);
             }
         });
-
-        // Configurar OnClickListener para el botón de Evaluaciones
-        botonIrAEvaluaciones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Crear un Intent para iniciar la actividad Evaluaciones
-                Intent intent = new Intent(MainActivity.this, Evaluaciones.class);
-                // Iniciar la actividad Evaluaciones
-                startActivity(intent);
-            }
-        });
-
-        // Configurar OnClickListener para el botón de Principal
-        botonIrAPrincipal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Crear un Intent para iniciar la actividad Principal
-                Intent intent = new Intent(MainActivity.this, Principal.class);
-                // Iniciar la actividad Principal
-                startActivity(intent);
-            }
-        });
-
-        // Configurar OnClickListener para el botón de Equipo
-        botonIrAEquipo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Crear un Intent para iniciar la actividad Equipo
-                Intent intent = new Intent(MainActivity.this, Equipo.class);
-                // Iniciar la actividad Equipo
-                startActivity(intent);
-            }
-        });
-
         // Configurar OnClickListener para el botón de Logout
         botonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
