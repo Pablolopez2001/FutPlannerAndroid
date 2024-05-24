@@ -57,22 +57,16 @@ public class MainActivity extends AppCompatActivity {
         botonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Crear un Intent para iniciar la actividad InicioSesion
                 Intent intent = new Intent(MainActivity.this, InicioSesion.class);
 
-                // Iniciar la actividad InicioSesion
                 startActivity(intent);
 
-                // Finalizar la actividad actual para salir
                 finish();
             }
         });
     }
 
-    // Método ficticio para verificar si el usuario ha iniciado sesión
     private boolean usuarioHaIniciadoSesion() {
-        // Aquí puedes implementar la lógica para verificar si el usuario ha iniciado sesión correctamente
-        // Por ahora, siempre se devuelve verdadero
         return true;
     }
 }

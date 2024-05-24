@@ -1,11 +1,6 @@
 package com.futplanner.futplannerandroid.models;
 
 public class User {
-    //"id":6,"username":"pabloTrainer","first_name":"Pablo",
-    // "last_name":"Rico","photo_url":"http://46.4.74.141:8080/uploads/cropped-1715347588511.jpeg",
-    // "date_of_birth":"2022-12-31T23:00:00.000Z",
-    // "last_token_key":"$2b$04$kR3YhhmeogComKyh30r53.sTLYvFFg1ux1khODuO7xTJ5nf404G2W",
-    // "club_id":1,"user_type":"trainer"
 
     private int id;
     private String username;
