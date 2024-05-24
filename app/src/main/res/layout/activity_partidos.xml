@@ -21,7 +21,7 @@
       app:layout_constraintHorizontal_bias="0.101"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.304" />
+      app:layout_constraintVertical_bias="0.137" />
 
   <Button
       android:id="@+id/btn_añadir"
@@ -35,22 +35,7 @@
       app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.303" />
-
-  <Button
-      android:id="@+id/btn_completados"
-      android:layout_width="395dp"
-      android:layout_height="83dp"
-      android:backgroundTint="#004D00"
-      android:text="Completados 🏆"
-      android:textColor="@color/white"
-      android:textSize="25sp"
-      android:textStyle="bold"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.564" />
+      app:layout_constraintVertical_bias="0.136" />
 
   <TextView
       android:id="@+id/prox_partidos"
@@ -64,5 +49,15 @@
       app:layout_constraintHorizontal_bias="0.496"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.075" />
+      app:layout_constraintVertical_bias="0.023" />
+
+  <ListView
+      android:id="@+id/partidos_list_view"
+      android:layout_width="382dp"
+      android:layout_height="514dp"
+      android:layout_marginTop="5dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/gestionpartidos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

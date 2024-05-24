@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.futplanner.futplannerandroid.models.User;
 
+public class MainActivity extends AppCompatActivity {
+    //Singleton del usuario ya cargado
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

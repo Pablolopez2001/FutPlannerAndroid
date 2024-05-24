@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.futplanner.futplannerandroid.models.LogInModel;
+import com.futplanner.futplannerandroid.models.User;
 import com.futplanner.futplannerandroid.util.NetworkUtil;
 
 import java.io.IOException;
@@ -44,7 +45,9 @@ public class InicioSesion extends AppCompatActivity {
                 try {
                     String response = NetworkUtil.post(NetworkUtil.URL + "logIn", om.writeValueAsString(login));
                     System.out.println(response);
-                    //TODO: Realizar el asignado a el usuario despues de convertir el JSON en objeto y almacenarlo
+                    //Realizar el asignado a el usuario despues de convertir el JSON en objeto y almacenarlo
+                    MainActivity.user = om.readValue(response, User.class);
+
                     runOnUiThread(() -> startActivity(intent));
                 } catch (IOException e) {
                     e.printStackTrace();
