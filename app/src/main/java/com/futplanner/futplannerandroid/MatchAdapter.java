@@ -28,12 +28,12 @@ public class MatchAdapter extends ArrayAdapter<Match> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_match, parent, false);
         }
 
-        TextView homeTeamName = convertView.findViewById(R.id.homeTeamName);
-        TextView awayTeamName = convertView.findViewById(R.id.awayTeamName);
+        TextView teamName = convertView.findViewById(R.id.teamName);
+        TextView matchDate = convertView.findViewById(R.id.matchDate);
 
         assert match != null;
-        homeTeamName.setText(match.getHomeTeamName());
-        awayTeamName.setText(match.getAwayTeamName());
+        teamName.setText(String.format("%s-%s", match.getHomeTeamName(), match.getAwayTeamName()));
+        matchDate.setText(match.getMatchDate().toLocalDate().toString());
 
         return convertView;
     }

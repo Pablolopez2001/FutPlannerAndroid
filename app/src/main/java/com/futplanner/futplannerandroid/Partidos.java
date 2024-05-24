@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.futplanner.futplannerandroid.models.LogInModel;
 import com.futplanner.futplannerandroid.models.Match;
 import com.futplanner.futplannerandroid.models.TokenRequest;
@@ -42,26 +43,29 @@ public class Partidos extends AppCompatActivity {
         listView = findViewById(R.id.partidos_list_view);
 
 
+        añadirPartidoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Partidos.this, Equipo.class);
+            startActivity(intent);
+        });
+
         //Fetch de partidos
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JavaTimeModule());
         TokenRequest tokenData = new TokenRequest(MainActivity.user.getId(), MainActivity.user.getLast_token_key());
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             try {
                 String response = NetworkUtil.post(NetworkUtil.URL + "trainer/getMatches", om.writeValueAsString(tokenData));
-                System.out.println(response);
+
                 this.matches = om.readValue(response, new TypeReference<List<Match>>(){});
-                for (Match m :
-                        this.matches) {
-                    System.out.println(m.getId());
-                }
+
+
                 runOnUiThread(() -> {
                     matchAdapter = new MatchAdapter(Partidos.this, this.matches);
                     listView.setAdapter(matchAdapter);
                 });
             } catch (IOException e) {
-                e.printStackTrace();
                 runOnUiThread(() -> Toast.makeText(Partidos.this, "Error al obtener partidos", Toast.LENGTH_SHORT).show());
             }
         });

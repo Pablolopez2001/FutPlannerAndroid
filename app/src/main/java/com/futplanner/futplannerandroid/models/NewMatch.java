@@ -1,17 +1,24 @@
 package com.futplanner.futplannerandroid.models;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
-public class Match {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class NewMatch {
 
-    private int id;
+    @JsonProperty("user_id")
+    private int userId;
+
+    @JsonProperty("token")
+    private String token;
 
     @JsonProperty("match_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime matchDate;
+    private long matchDate;
 
     @JsonProperty("map_coords")
     private String mapCoords;
@@ -20,7 +27,7 @@ public class Match {
     private String placeName;
 
     @JsonProperty("home_team_id")
-    private int homeTeamId;
+    private Integer homeTeamId;
 
     @JsonProperty("home_team_name")
     private String homeTeamName;
@@ -34,23 +41,29 @@ public class Match {
     @JsonProperty("sub_category_id")
     private int subCategoryId;
 
-    private int evaluated;
-
     // Getters y Setters
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public LocalDateTime getMatchDate() {
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public long getMatchDate() {
         return matchDate;
     }
 
-    public void setMatchDate(LocalDateTime matchDate) {
+    public void setMatchDate(long matchDate) {
         this.matchDate = matchDate;
     }
 
@@ -70,11 +83,11 @@ public class Match {
         this.placeName = placeName;
     }
 
-    public int getHomeTeamId() {
+    public Integer getHomeTeamId() {
         return homeTeamId;
     }
 
-    public void setHomeTeamId(int homeTeamId) {
+    public void setHomeTeamId(Integer homeTeamId) {
         this.homeTeamId = homeTeamId;
     }
 
@@ -108,13 +121,5 @@ public class Match {
 
     public void setSubCategoryId(int subCategoryId) {
         this.subCategoryId = subCategoryId;
-    }
-
-    public int getEvaluated() {
-        return evaluated;
-    }
-
-    public void setEvaluated(int evaluated) {
-        this.evaluated = evaluated;
     }
 }

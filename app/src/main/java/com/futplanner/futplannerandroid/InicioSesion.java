@@ -44,7 +44,7 @@ public class InicioSesion extends AppCompatActivity {
             executor.execute(() -> {
                 try {
                     String response = NetworkUtil.post(NetworkUtil.URL + "logIn", om.writeValueAsString(login));
-                    System.out.println(response);
+
                     //Realizar el asignado a el usuario despues de convertir el JSON en objeto y almacenarlo
                     MainActivity.user = om.readValue(response, User.class);
 
