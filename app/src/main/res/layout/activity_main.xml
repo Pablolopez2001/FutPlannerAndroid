@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo_equipo"
         android:layout_width="165dp"
         android:layout_height="178dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.179"
+        app:srcCompat="@drawable/logofinal"
         tools:srcCompat="@drawable/logofinal" />
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_height="59dp"
         android:background="#004D00"
         android:text="Nombre del club"
+        android:gravity="center"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +41,7 @@
         android:layout_height="64dp"
         android:background="#004D00"
         android:text="Nombre del equipo"
+        android:gravity="center"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

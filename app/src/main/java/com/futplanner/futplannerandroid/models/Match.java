@@ -9,12 +9,12 @@ public class Match {
 
     private int id;
 
-    @JsonProperty("match_date")
+
+    @JsonProperty("map_coords")
+    private String mapCoords;@JsonProperty("match_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime matchDate;
 
-    @JsonProperty("map_coords")
-    private String mapCoords;
 
     @JsonProperty("place_name")
     private String placeName;
